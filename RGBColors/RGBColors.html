@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .color-square {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            border: 1px solid #000;
+        }
+    </style>
+
+    <script type="application/javascript">
+        function init() {
+            var canvas = document.getElementById("canvas");
+            if (canvas.getContext) {
+                var ctx = canvas.getContext("2d");
+
+                // Array de cores RGB
+                var colors = [
+                    "rgb(255, 0, 0)",
+                    "rgb(0, 255, 0)",
+                    "rgb(0, 0, 255)",
+                    "rgb(255, 255, 0)",
+                    "rgb(255, 0, 255)",
+                    "rgb(0, 255, 255)"
+                    // Adicione mais cores conforme necessário
+                ];
+
+                drawColorGrid(ctx, colors, 5, 5, 50, 50);
+            }
+        }
+
+        function drawColorGrid(ctx, colors, rows, cols, squareWidth, squareHeight) {
+            for (var row = 0; row < rows; row++) {
+                for (var col = 0; col < cols; col++) {
+                    var x = col * (squareWidth + 10); // 10 pixels de margem entre os quadrados
+                    var y = row * (squareHeight + 10);
+
+                    ctx.fillStyle = colors[(row * cols + col) % colors.length];
+                    ctx.fillRect(x, y, squareWidth, squareHeight);
+
+                    // Adicione o texto com a cor
+                    ctx.fillStyle = "#000";
+                    ctx.fillText(ctx.fillStyle, x + squareWidth / 2, y + squareHeight / 2);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body onload="init();">
+    <canvas id="canvas" width="500" height="500"></canvas><br>
+</body>
+
+</html>
