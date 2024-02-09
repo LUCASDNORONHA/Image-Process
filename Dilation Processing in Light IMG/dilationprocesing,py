@@ -1,0 +1,13 @@
+import cv2
+import numpy as np
+
+IMG = cv2.imread('Dilation Processing in Light IMG/OpenCV_Logo.png')
+
+kernel =  cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
+
+dilation = cv2.dilate(IMG, kernel, iterations=1)
+res = np.concatenate((IMG, dilation), axis=1)
+
+cv2.imshow('Result', res)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
