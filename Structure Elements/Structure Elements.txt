@@ -1,0 +1,47 @@
+Em OpenCv as matrizes de elementos estruturantes disponíveis são dos tipos MORPH_
+RECT, MORPH_ELLIPSE e MORPH_CROSS. Essas matrizes têm elementos formados por zeros e uns (0 e 1) que definem cores pretas (0) e brancas (1). 
+Elas têm os formatos de retângulo, elipse ou cruz, como os nomes sugerem, respectivamente.
+
+Ao pegar a forma do elemento estruturante com o código Python com OpenCV,
+para a forma de retângulo:
+
+cv.getStructuringElement(cv.MORPH_RECT,(5,5))
+
+O resultado após um comando de print para verificação é:
+
+array(
+[[1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1]], dtype=uint8)
+
+Ao pegar a forma do elemento estruturante com o código Python com OpenCV,
+para a forma de elipse:
+
+cv.getStructuringElement(cv.MORPH_ELLIPSE,(5,5))
+
+O resultado após um comando de print para verificação é:
+
+array([[0, 0, 1, 0, 0],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [0, 0, 1, 0, 0]], dtype=uint8)
+
+
+Ao pegar a forma do elemento estruturante com o código Python com OpenCV,
+para a forma de cruz:
+
+cv.getStructuringElement(cv.MORPH_CROSS,(5,5))
+
+O resultado após um comando de print para verificação é:
+
+array([[0, 0, 1, 0, 0],
+ [0, 0, 1, 0, 0],
+ [1, 1, 1, 1, 1],
+ [0, 0, 1, 0, 0],
+ [0, 0, 1, 0, 0]], dtype=uint8)
+
+Esses elementos estruturantes podem ser aplicados nas operações morfológicas de
+Erosão, Dilatação, Abertura ou Fechamento.
